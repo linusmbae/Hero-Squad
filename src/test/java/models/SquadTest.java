@@ -2,6 +2,7 @@ package models;
 
 import org.junit.After;
 import org.junit.Before;
+import org.junit.Test;
 import org.sql2o.Sql2o;
 
 import static org.junit.Assert.*;
@@ -16,4 +17,13 @@ public class SquadTest {
         Squad.clearEntireSquad();
     }
 
+    @Test
+    public void squadIsCreatedCorrectly_true() throws Exception
+    {
+        Squad squad=createNewSquad();
+        assertEquals(true,squad instanceof Squad);
+    }
+
+    public Squad createNewSquad()
+    {return new Squad(1, 5,"Hero Squad","computer illiteracy");}
 }
