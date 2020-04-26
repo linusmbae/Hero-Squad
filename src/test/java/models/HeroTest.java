@@ -28,6 +28,7 @@ public class HeroTest {
         assertEquals(35,hero.getAge());
         assertEquals("Flying",hero.getSpecialPowers());
         assertEquals("stones",hero.getWeakness());
+        assertEquals(1,hero.getId());
     }
     @Test
     public void HeroesAreCorrectlyReturned_true() throws Exception {
@@ -44,8 +45,17 @@ public class HeroTest {
         assertTrue(Hero.getAll().contains(otherHero));
     }
 
-public Hero createNewHero()
-{
-    return new Hero("Super Girl",35,"Flying", "stones",1);
+    @Test
+    public void findReturnsCorrectHero() throws Exception {
+        Hero hero = createNewHero();
+        assertEquals(1, Hero.findById(hero.getId()).getId());
+    }
+
+    public Hero createNewHero()
+    {
+        return new Hero("Super Girl",35,"Flying", "stones",1);
+    }
 }
-}
+
+
+
