@@ -41,7 +41,7 @@ public class Hero {
         return instances;
     }
 
-    public static void clearAllTasks(){
+    public static void clearAllHeroes(){
         instances.clear();
     }
 

@@ -24,6 +24,10 @@ public class Squad {
         Squad.instances = instances;
     }
 
+    public static void clearEntireSquad(){
+        instances.clear();
+    }
+
     public int getId() {
         return id;
     }

@@ -15,7 +15,7 @@ public class HeroTest {
 
     @After
     public void tearDown() throws Exception {
-        Hero.clearAllTasks(); // clear out all the tasks before each test
+        Hero.clearAllHeroes();
     }
     @Test
     public void heroIsCreatedCorrectly_true() throws Exception
@@ -92,7 +92,7 @@ public class HeroTest {
     public void deleteAll() throws Exception {
         Hero hero = createNewHero();
         Hero anotherHero = createNewHero();
-        Hero.clearAllTasks();
+        Hero.clearAllHeroes();
         assertEquals(0,Hero.getAll().size());
     }
 
