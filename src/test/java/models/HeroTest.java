@@ -19,7 +19,12 @@ public class HeroTest {
         assertEquals("Flying",hero.getSpecialPowers());
         assertEquals("stones",hero.getWeakness());
     }
-
+    @Test
+    public void HeroesAreCorrectlyReturned_true() throws Exception {
+        Hero hero = createNewHero();
+        Hero otherHero = new Hero("Super Man",45,"super Speed", "stones",2);
+        assertEquals(3, Hero.getAll().size());
+    }
 
 public Hero createNewHero()
 {

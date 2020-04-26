@@ -1,8 +1,10 @@
 package models;
 
+import java.util.ArrayList;
 import java.util.Objects;
 
 public class Hero {
+    private static ArrayList<Hero> instances = new ArrayList<>();
     private String name;
     private int age;
     private String specialPowers;
@@ -14,7 +16,8 @@ public class Hero {
         this.age = age;
         this.specialPowers = specialPowers;
         this.weakness = weakness;
-        this.id = id;
+        instances.add(this);
+        this.id = instances.size();
     }
 
     @Override
@@ -32,6 +35,29 @@ public class Hero {
     @Override
     public int hashCode() {
         return Objects.hash(name, age, specialPowers, weakness, id);
+    }
+
+    public static ArrayList<Hero> getAll() {
+        return instances;
+    }
+
+    public static void clearAllTasks(){
+        instances.clear();
+    }
+
+    public static Hero findById(int id){
+        return instances.get(id-1);
+    }
+
+    public void update(String name, int age, String specialPowers, String weakness) {
+        this.name = name;
+        this.age=age;
+        this.specialPowers=specialPowers;
+        this.weakness=weakness;
+    }
+
+    public void deleteTask(){
+        instances.remove(id-1);
     }
 
     public String getName() {
