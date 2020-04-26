@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>{{#block "title"}}Hero Squad{{/block}}</title>
+    <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css'>
+</head>
+<body>
+<ul class="nav nav-tabs">
+    <li role="presentation" class="active"><a class="btn btn-success" href="/">Home</a></li>
+    <li role="presentation"><a class="btn btn-success" href="">Create New Hero</a></li>
+    <li role="presentation"><a class="btn btn-success" href="">Create New Squad</a></li>
+</ul>
+<div class="container">
+    <div class="jumbotron">
+        {{#block "content"}}
+
+        {{/block}}
+    </div>
+</div>
+<div class="card-footer">
+    {{#block "footer"}}
+
+    {{/block}}
+</div>
+</body>
+</html>
