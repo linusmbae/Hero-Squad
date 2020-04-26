@@ -14,6 +14,8 @@ public class Squad {
         this.maxSize = maxSize;
         this.name = name;
         this.cause = cause;
+        instances.add(this);
+        this.id = instances.size();
     }
 
     public static ArrayList<Squad> getAll() {

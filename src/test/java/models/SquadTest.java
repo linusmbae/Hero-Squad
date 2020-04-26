@@ -33,6 +33,13 @@ public class SquadTest {
         assertEquals("computer illiteracy",squad.getCause());
     }
 
+    @Test
+    public void allSquadsAreReturnedCorrectly_true() throws Exception {
+        Squad squad= createNewSquad();
+        Squad anotherSquad= new Squad(2,5,"Team Super Girl", "Fight Criminals");
+        assertEquals(2,Squad.getAll().size());
+    }
+
     public Squad createNewSquad()
     {return new Squad(1, 5,"Hero Squad","computer illiteracy");}
 }
