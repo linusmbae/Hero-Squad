@@ -88,6 +88,14 @@ public class HeroTest {
         assertEquals(hero.getAll().get(0).getId(),2);
     }
 
+    @Test
+    public void deleteAll() throws Exception {
+        Hero hero = createNewHero();
+        Hero anotherHero = createNewHero();
+        Hero.clearAllTasks();
+        assertEquals(0,Hero.getAll().size());
+    }
+
     public Hero createNewHero()
     {
         return new Hero("Super Girl",35,"Flying", "stones",1);
