@@ -79,6 +79,15 @@ public class HeroTest {
 
     }
 
+    @Test
+    public void deleteHeroById() throws Exception {
+        Hero hero= createNewHero();
+        Hero anotherHero = new Hero("Super Man",45,"super Speed", "stones",2);
+        hero.deleteHero();
+        assertEquals(1,hero.getAll().size());
+        assertEquals(hero.getAll().get(0).getId(),2);
+    }
+
     public Hero createNewHero()
     {
         return new Hero("Super Girl",35,"Flying", "stones",1);

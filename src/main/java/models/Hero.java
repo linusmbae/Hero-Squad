@@ -56,7 +56,7 @@ public class Hero {
         this.weakness=weakness;
     }
 
-    public void deleteTask(){
+    public void deleteHero(){
         instances.remove(id-1);
     }
 
