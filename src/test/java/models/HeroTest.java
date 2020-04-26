@@ -4,6 +4,8 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
+import java.net.http.HttpRequest;
+
 import static org.junit.Assert.*;
 
 public class HeroTest {
@@ -49,6 +51,13 @@ public class HeroTest {
     public void findReturnsCorrectHero() throws Exception {
         Hero hero = createNewHero();
         assertEquals(1, Hero.findById(hero.getId()).getId());
+    }
+
+    @Test
+    public void findReturnsCorrectIfMoreThanOneHeroExists() throws Exception {
+        Hero hero = createNewHero();
+        Hero anotherHero = new Hero("Super Man",45,"super Speed", "stones",2);
+        assertEquals(2,Hero.findById(anotherHero.getId()).getId());
     }
 
     public Hero createNewHero()
