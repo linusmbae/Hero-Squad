@@ -48,6 +48,14 @@ public class SquadTest {
         assertTrue(Squad.getAll().contains(anotherSquad));
     }
 
+    @Test
+    public void findByIdReturnsCorrectSquad() throws Exception {
+        Squad squad= createNewSquad();
+        assertEquals(1, Squad.findById(squad.getId()).getId());
+    }
+
+
+
     public Squad createNewSquad()
     {return new Squad(1, 5,"Hero Squad","computer illiteracy");}
 }

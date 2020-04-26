@@ -29,6 +29,9 @@ public class Squad {
     public static void clearEntireSquad(){
         instances.clear();
     }
+    public static Squad findById(int id){
+        return instances.get(id-1);
+    }
 
     public int getId() {
         return id;
