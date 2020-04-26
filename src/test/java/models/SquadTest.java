@@ -54,7 +54,12 @@ public class SquadTest {
         assertEquals(1, Squad.findById(squad.getId()).getId());
     }
 
-
+    @Test
+    public void findReturnsMoreThanOneSquad() throws Exception {
+        Squad squad= createNewSquad();
+        Squad anotherSquad= new Squad(2,5,"Team Super Girl", "Fight Criminals");
+        assertEquals(2,Squad.findById(anotherSquad.getId()).getId());
+    }
 
     public Squad createNewSquad()
     {return new Squad(1, 5,"Hero Squad","computer illiteracy");}
