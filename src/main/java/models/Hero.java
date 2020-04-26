@@ -33,4 +33,44 @@ public class Hero {
     public int hashCode() {
         return Objects.hash(name, age, specialPowers, weakness, id);
     }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public int getAge() {
+        return age;
+    }
+
+    public void setAge(int age) {
+        this.age = age;
+    }
+
+    public String getSpecialPowers() {
+        return specialPowers;
+    }
+
+    public void setSpecialPowers(String specialPowers) {
+        this.specialPowers = specialPowers;
+    }
+
+    public String getWeakness() {
+        return weakness;
+    }
+
+    public void setWeakness(String weakness) {
+        this.weakness = weakness;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
 }
