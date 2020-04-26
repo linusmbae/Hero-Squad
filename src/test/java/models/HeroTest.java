@@ -60,6 +60,25 @@ public class HeroTest {
         assertEquals(2,Hero.findById(anotherHero.getId()).getId());
     }
 
+    @Test
+    public void updateHeroDetails() throws Exception {
+        Hero hero = createNewHero();
+        String previousName=hero.getName();
+        int previousAge=hero.getAge();
+        String previousSpecialPowers=hero.getSpecialPowers();
+        String previousWeakness=hero.getWeakness();
+        int previousId=hero.getId();
+
+        hero.update("Super Man",45,"super Speed", "Stones");
+
+        assertEquals(previousId,hero.getId());
+        assertNotEquals(previousName,hero.getName());
+        assertNotEquals(previousAge, hero.getAge());
+        assertNotEquals(previousSpecialPowers,hero.getSpecialPowers());
+        assertNotEquals(previousWeakness,hero.getWeakness());
+
+    }
+
     public Hero createNewHero()
     {
         return new Hero("Super Girl",35,"Flying", "stones",1);
