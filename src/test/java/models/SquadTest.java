@@ -99,6 +99,14 @@ public class SquadTest {
         assertEquals(squad.getAll().get(0).getId(),2);
     }
 
+    @Test
+    public void clearAllClearsSquadList_true() throws Exception {
+        Squad squad=createNewSquad();
+        Squad anotherSquad=createNewSquad();
+        Squad.clearEntireSquad();
+        assertEquals(0,Squad.getAll().size());
+    }
+
     public Squad createNewSquad()
     {return new Squad(1, "Hero Squad","computer illiteracy");}
 }
