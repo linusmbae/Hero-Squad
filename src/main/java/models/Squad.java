@@ -9,6 +9,12 @@ public class Squad {
     private String name;
     private String cause;
 
+    public Squad(int id, int maxSize, String name, String cause) {
+        this.id = id;
+        this.maxSize = maxSize;
+        this.name = name;
+        this.cause = cause;
+    }
 
 
 }
