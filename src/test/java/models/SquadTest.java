@@ -61,6 +61,22 @@ public class SquadTest {
         assertEquals(2,Squad.findById(anotherSquad.getId()).getId());
     }
 
+    @Test
+    public void findReturnsMoreThanFiveSquad_false() throws Exception {
+        Squad squad1= createNewSquad();
+        Squad squad2= new Squad(2,5,"Team Super Girl", "Fight Criminals");
+        Squad squad3= new Squad(3,5,"Team Super Girl", "Fight Criminals");
+        Squad squad4= new Squad(4,5,"Team Super Girl", "Fight Criminals");
+        Squad squad5= new Squad(5,5,"Team Super Girl", "Fight Criminals");
+        Squad squad6= new Squad(6,5,"Team Super Girl", "Fight Criminals");
+        assertEquals(1,Squad.findById(squad1.getId()).getId());
+        assertEquals(2,Squad.findById(squad2.getId()).getId());
+        assertEquals(3,Squad.findById(squad3.getId()).getId());
+        assertEquals(4,Squad.findById(squad4.getId()).getId());
+        assertEquals(5,Squad.findById(squad5.getId()).getId());
+        assertNotEquals(5,Squad.findById(squad6.getId()).getId());
+    }
+
     public Squad createNewSquad()
     {return new Squad(1, 5,"Hero Squad","computer illiteracy");}
 }
