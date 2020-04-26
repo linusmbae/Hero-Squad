@@ -31,6 +31,10 @@ public class Squad {
         return instances.get(id-1);
     }
 
+    public  void deleteSquad() {
+        instances.remove(id-1);
+    }
+
     public int getId() {
         return id;
     }
