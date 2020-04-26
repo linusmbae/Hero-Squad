@@ -40,6 +40,14 @@ public class SquadTest {
         assertEquals(2,Squad.getAll().size());
     }
 
+    @Test
+    public void allSquadsContainsAllSquads() throws Exception {
+        Squad squad= createNewSquad();
+        Squad anotherSquad= new Squad(2,5,"Team Super Girl", "Fight Criminals");
+        assertTrue(Squad.getAll().contains(squad));
+        assertTrue(Squad.getAll().contains(anotherSquad));
+    }
+
     public Squad createNewSquad()
     {return new Squad(1, 5,"Hero Squad","computer illiteracy");}
 }
