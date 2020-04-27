@@ -1,6 +1,7 @@
 package models;
 
 import java.util.ArrayList;
+import java.util.Objects;
 
 public class Squad {
     private static ArrayList<Squad> instances = new ArrayList<>();
@@ -14,6 +15,21 @@ public class Squad {
         this.cause = cause;
         instances.add(this);
         this.id = instances.size();
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Squad squad = (Squad) o;
+        return id == squad.id &&
+                Objects.equals(name, squad.name) &&
+                Objects.equals(cause, squad.cause);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, name, cause);
     }
 
     public static ArrayList<Squad> getAll() {

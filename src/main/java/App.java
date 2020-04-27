@@ -75,10 +75,11 @@ public class App {
             int idOfHeroToUpdate=Integer.parseInt(request.params(":id"));
             Hero editHero= Hero.findById(idOfHeroToUpdate);
             editHero.update(newName,newAge,newSpecialPowers,newWeakness);
-            return new ModelAndView(model, "hero-details.hbs");
+            response.redirect("/");
+            return null;
         }, new HandlebarsTemplateEngine());
 
-//        remove post by id
+//        remove hero by id
         get("/heroes/:id/delete", (request, response) ->
         {
             Map<String , Object>model=new HashMap<String, Object>();
@@ -140,6 +141,53 @@ public class App {
             Squad editSquad= Squad.findById(idOfSquadToUpdate);
             model.put("editSquad", editSquad);
             return new ModelAndView(model, "edit-squad.hbs");
+        }, new HandlebarsTemplateEngine());
+
+//        post new squad details
+        post("/squads/:id/update", (request, response) ->
+        {
+            Map<String, Object>model=new HashMap<String, Object>();
+            String newName=request.queryParams("name");
+            String newCause=request.queryParams("cause");
+            int idOfSquadToUpdate=Integer.parseInt(request.params(":id"));
+            Squad editHero= Squad.findById(idOfSquadToUpdate);
+            editHero.update(newName,newCause);
+            return new ModelAndView(model, "squad-details.hbs");
+        }, new HandlebarsTemplateEngine());
+
+//        remove squad by id
+        get("/squads/:id/delete", (request, response) ->
+        {
+            Map<String , Object>model=new HashMap<String, Object>();
+            int idOfSquadToRemove=Integer.parseInt(request.params(":id"));
+            Squad removeSquadById=Squad.findById(idOfSquadToRemove);
+            removeSquadById.deleteSquad();
+            response.redirect("/");
+            return null;
+        }, new HandlebarsTemplateEngine());
+
+//        assign squad
+        get("/assign-squad/new", (request, response) ->
+        {
+            Map<String, Object>model=new HashMap<String, Object>();
+            ArrayList<Hero>heroes=Hero.getAll();
+            model.put("heroes",heroes);
+            return new ModelAndView(model,"assign-squad.hbs");
+        }, new HandlebarsTemplateEngine());
+
+        get("/heroes/:id/assign", (request, response) ->
+        {
+            Map<String, Object>model= new HashMap<String, Object>();
+            int idOfHeroToAssign=Integer.parseInt(request.params(":id"));
+            Hero assign= Hero.findById(idOfHeroToAssign);
+            model.put("assign",assign);
+
+            ArrayList<Hero>heroes=Hero.getAll();
+            model.put("heroes",heroes);
+
+            ArrayList<Squad>squads=Squad.getAll();
+            model.put("squads",squads);
+            return new ModelAndView(model,"assign-form.hbs");
         }, new HandlebarsTemplateEngine());
     }
 }
