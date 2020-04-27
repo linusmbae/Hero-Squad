@@ -95,5 +95,14 @@ public class App {
             editHero.update(newName,newAge,newSpecialPowers,newWeakness);
             return new ModelAndView(model, "hero-details.hbs");
         }, new HandlebarsTemplateEngine());
+        get("/heroes/:id/delete", (request, response) ->
+        {
+            Map<String , Object>model=new HashMap<String, Object>();
+            int idOfHeroToRemove=Integer.parseInt(request.params(":id"));
+            Hero removeHeroById=Hero.findById(idOfHeroToRemove);
+            removeHeroById.deleteHero();
+            response.redirect("/");
+            return null;
+        }, new HandlebarsTemplateEngine());
     }
 }
