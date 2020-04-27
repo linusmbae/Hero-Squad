@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.Objects;
 
 public class Squad {
-    private static ArrayList<Squad> instances = new ArrayList<>();
+    private static ArrayList<Squad> SquadInstances = new ArrayList<>();
     private int id;
     private String name;
     private String cause;
@@ -13,8 +13,8 @@ public class Squad {
 
         this.name = name;
         this.cause = cause;
-        instances.add(this);
-        this.id = instances.size();
+        SquadInstances.add(this);
+        this.id = SquadInstances.size();
     }
 
     @Override
@@ -33,22 +33,22 @@ public class Squad {
     }
 
     public static ArrayList<Squad> getAll() {
-        return instances;
+        return SquadInstances;
     }
 
-    public static void setAll(ArrayList<Squad> instances) {
-        Squad.instances = instances;
+    public static void setAll(ArrayList<Squad> SquadInstances) {
+        Squad.SquadInstances = SquadInstances;
     }
 
     public static void clearEntireSquad(){
-        instances.clear();
+        SquadInstances.clear();
     }
     public static Squad findById(int id){
-        return instances.get(id-1);
+        return SquadInstances.get(id-1);
     }
 
     public  void deleteSquad() {
-        instances.remove(id-1);
+        SquadInstances.remove(id-1);
     }
 
     public int getId() {

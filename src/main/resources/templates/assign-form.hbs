@@ -1,14 +1,16 @@
 {{#partial "content"}}
-    <p>{{heroes.name}}</p>
-    {{#if assign}}
 
-        {{#each squads}}
-            <form action="/heroes/{{id}}/assign" method="post">
-                <select name="squad" id="squad">
-                    <option value="{{squads.name}}"></option>
+    {{#if assign}}
+            <form action="/heroes/{{assign.id}}/assign" method="post">
+                <select name="squad" id="squad" class="form-control">
+            {{#each squads}}
+                    <option value="{{assign.name}}"></option>
+            {{/each}}
                 </select>
+                <button type="submit" class="btn btn-success"><strong>Assign</strong></button>
             </form>
-        {{/each}}
+    {{else}}
+        <p>select hero</p>
     {{/if}}
 {{/partial}}
 {{>layout.hbs}}

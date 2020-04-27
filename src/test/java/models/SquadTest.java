@@ -77,7 +77,7 @@ public class SquadTest {
     }
 
     @Test
-    public void updateSquadDetails() {
+    public void updateSquadDetails() throws Exception {
         Squad squad= createNewSquad();
         int previousId=squad.getId();
         String previousName=squad.getName();

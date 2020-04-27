@@ -15,7 +15,7 @@ public class App {
         if (processBuilder.environment().get("PORT") != null) {
             return Integer.parseInt(processBuilder.environment().get("PORT"));
         }
-        return 4567; //return default port if heroku-port isn't set (i.e. on localhost)
+        return 4567;
     }
     public static void main(String[] args) {
         port(getHerokuAssignedPort());
@@ -102,32 +102,31 @@ public class App {
 
 //        squad starts
 //        get squad details
-        get("/",(request, response) ->
+        get("/squads",(request, response) ->
         {
             Map<String, Object>model=new HashMap<String, Object>();
-            ArrayList<Squad>squads=Squad.getAll();
-            model.put("squads",squads);
-            return new ModelAndView(model,"index.hbs");
+            ArrayList<Squad>squad=Squad.getAll();
+            model.put("squads",squad);
+            return new ModelAndView(model,"squad-display.hbs");
         },new HandlebarsTemplateEngine());
 
 //        view new squad form
-        get("/squad/new",(request, response) ->
+        get("/squads/new",(request, response) ->
         {
             Map<String, Object>model=new HashMap<String, Object>();
             return new ModelAndView(model, "new-squad-form.hbs");
         },new HandlebarsTemplateEngine());
 
 //        create new squad
-        post("/squad/new", (request, response) ->
+        post("/squads/new", (request, response) ->
         {
             Map<String, Object>model=new HashMap<String, Object>();
-
 
             String name= request.queryParams("name");
             String cause=request.queryParams("cause");
             Squad newSquad=new Squad(name,cause);
-            model.put("squad",newSquad);
-            response.redirect("/");
+            model.put("squads",newSquad);
+            response.redirect("/squads");
             return null;
         },new HandlebarsTemplateEngine());
 
@@ -160,8 +159,9 @@ public class App {
             int idOfSquadToUpdate=Integer.parseInt(request.params(":id"));
             Squad editHero= Squad.findById(idOfSquadToUpdate);
             editHero.update(newName,newCause);
-            return new ModelAndView(model, "squad-details.hbs");
-        }, new HandlebarsTemplateEngine());
+            response.redirect("/squads");
+            return null;
+            }, new HandlebarsTemplateEngine());
 
 //        remove squad by id
         get("/squads/:id/delete", (request, response) ->
@@ -170,7 +170,7 @@ public class App {
             int idOfSquadToRemove=Integer.parseInt(request.params(":id"));
             Squad removeSquadById=Squad.findById(idOfSquadToRemove);
             removeSquadById.deleteSquad();
-            response.redirect("/");
+            response.redirect("/squads");
             return null;
         }, new HandlebarsTemplateEngine());
 
@@ -189,9 +189,6 @@ public class App {
             int idOfHeroToAssign=Integer.parseInt(request.params(":id"));
             Hero assign= Hero.findById(idOfHeroToAssign);
             model.put("assign",assign);
-
-            ArrayList<Hero>heroes=Hero.getAll();
-            model.put("heroes",heroes);
 
             ArrayList<Squad>squads=Squad.getAll();
             model.put("squads",squads);
