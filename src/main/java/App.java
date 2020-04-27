@@ -35,8 +35,7 @@ public class App {
             int age = Integer.parseInt(request.queryParams("age"));
             String specialPowers=request.queryParams("specialPowers");
             String weakness = request.queryParams("weakness");
-            int id =Integer.parseInt(request.queryParams("id"));
-            Hero newHero=new Hero(name,age,specialPowers,weakness,id);
+            Hero newHero=new Hero(name,age,specialPowers,weakness);
             model.put("hero",newHero);
             response.redirect("/");
             return null;
@@ -51,10 +50,10 @@ public class App {
         {
             Map<String, Object>model=new HashMap<String, Object>();
 
-            int id = Integer.parseInt(request.queryParams("id"));
+
             String name= request.queryParams("name");
             String cause=request.queryParams("cause");
-            Squad newSquad=new Squad(id,name,cause);
+            Squad newSquad=new Squad(name,cause);
             model.put("squad",newSquad);
             response.redirect("/");
             return null;
@@ -74,6 +73,27 @@ public class App {
             Squad foundSquad=Squad.findById(idToFind);
             model.put("squad", foundSquad);
             return new ModelAndView(model, "squad-details.hbs");
+        }, new HandlebarsTemplateEngine());
+        get("/heroes/:id/update", (request, response) ->
+        {
+            Map<String, Object>model=new HashMap<String, Object>();
+            int idOfHeroToUpdate=Integer.parseInt(request.params(":id"));
+            Hero editHero= Hero.findById(idOfHeroToUpdate);
+            model.put("editHero", editHero);
+            return new ModelAndView(model, "edit-hero.hbs");
+        }, new HandlebarsTemplateEngine());
+
+        post("/heroes/:id/update", (request, response) ->
+        {
+            Map<String, Object>model=new HashMap<String, Object>();
+            String newName=request.queryParams("name");
+            int newAge = Integer.parseInt(request.queryParams("age"));
+            String newSpecialPowers=request.queryParams("specialPowers");
+            String newWeakness = request.queryParams("weakness");
+            int idOfHeroToUpdate=Integer.parseInt(request.params(":id"));
+            Hero editHero= Hero.findById(idOfHeroToUpdate);
+            editHero.update(newName,newAge,newSpecialPowers,newWeakness);
+            return new ModelAndView(model, "hero-details.hbs");
         }, new HandlebarsTemplateEngine());
     }
 }

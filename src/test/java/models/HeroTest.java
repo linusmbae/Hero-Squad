@@ -35,14 +35,14 @@ public class HeroTest {
     @Test
     public void HeroesAreCorrectlyReturned_true() throws Exception {
         Hero hero = createNewHero();
-        Hero otherHero = new Hero("Super Man",45,"super Speed", "stones",2);
+        Hero otherHero = new Hero("Super Man",45,"super Speed", "stones");
         assertEquals(2, Hero.getAll().size());
     }
 
     @Test
     public void AllHeroesContainsAllHeroes_true() throws Exception {
         Hero hero = createNewHero();
-        Hero otherHero = new Hero("Super Man",45,"super Speed", "stones",2);
+        Hero otherHero = new Hero("Super Man",45,"super Speed", "stones");
         assertTrue(Hero.getAll().contains(hero));
         assertTrue(Hero.getAll().contains(otherHero));
     }
@@ -56,7 +56,7 @@ public class HeroTest {
     @Test
     public void findReturnsCorrectIfMoreThanOneHeroExists() throws Exception {
         Hero hero = createNewHero();
-        Hero anotherHero = new Hero("Super Man",45,"super Speed", "stones",2);
+        Hero anotherHero = new Hero("Super Man",45,"super Speed", "stones");
         assertEquals(2,Hero.findById(anotherHero.getId()).getId());
     }
 
@@ -82,7 +82,7 @@ public class HeroTest {
     @Test
     public void deleteHeroById() throws Exception {
         Hero hero= createNewHero();
-        Hero anotherHero = new Hero("Super Man",45,"super Speed", "stones",2);
+        Hero anotherHero = new Hero("Super Man",45,"super Speed", "stones");
         hero.deleteHero();
         assertEquals(1,hero.getAll().size());
         assertEquals(hero.getAll().get(0).getId(),2);
@@ -98,7 +98,7 @@ public class HeroTest {
 
     public Hero createNewHero()
     {
-        return new Hero("Super Girl",35,"Flying", "stones",1);
+        return new Hero("Super Girl",35,"Flying", "stones");
     }
 }
 
