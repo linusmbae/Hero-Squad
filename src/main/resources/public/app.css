@@ -1,0 +1,13 @@
+#heading
+{
+text-decoration: underline;
+color:red;
+}
+.container
+{
+background-image: url("../images/wiTOa9.jpg");
+}
+.jumbotron
+{
+opacity: 0.9;
+}
