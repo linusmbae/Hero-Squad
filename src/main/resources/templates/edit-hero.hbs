@@ -2,7 +2,7 @@
 
     {{#if editHero}}
         <strong><h4>Edit Hero</h4></strong>
-        <form action="/heroes/{{editHero.id}}/update">
+        <form action="/heroes/{{editHero.id}}/update" method="post">
             <div class="form-group">
                 <input type="text" class="form-control" name="name" id="name" value="{{editHero.name}}">
             </div>
