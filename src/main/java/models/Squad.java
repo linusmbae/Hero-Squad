@@ -8,8 +8,8 @@ public class Squad {
     private String name;
     private String cause;
 
-    public Squad(int id, String name, String cause) {
-        this.id = id;
+    public Squad( String name, String cause) {
+
         this.name = name;
         this.cause = cause;
         instances.add(this);

@@ -11,7 +11,7 @@ public class Hero {
     private String weakness;
     private int id;
 
-    public Hero(String name, int age, String specialPowers, String weakness, int id) {
+    public Hero(String name, int age, String specialPowers, String weakness) {
         this.name = name;
         this.age = age;
         this.specialPowers = specialPowers;

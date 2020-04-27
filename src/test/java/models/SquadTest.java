@@ -35,14 +35,14 @@ public class SquadTest {
     @Test
     public void allSquadsAreReturnedCorrectly_true() throws Exception {
         Squad squad= createNewSquad();
-        Squad anotherSquad= new Squad(2,"Team Super Girl", "Fight Criminals");
+        Squad anotherSquad= new Squad("Team Super Girl", "Fight Criminals");
         assertEquals(2,Squad.getAll().size());
     }
 
     @Test
     public void allSquadsContainsAllSquads() throws Exception {
         Squad squad= createNewSquad();
-        Squad anotherSquad= new Squad(2,"Team Super Girl", "Fight Criminals");
+        Squad anotherSquad= new Squad("Team Super Girl", "Fight Criminals");
         assertTrue(Squad.getAll().contains(squad));
         assertTrue(Squad.getAll().contains(anotherSquad));
     }
@@ -56,18 +56,18 @@ public class SquadTest {
     @Test
     public void findReturnsMoreThanOneSquad() throws Exception {
         Squad squad= createNewSquad();
-        Squad anotherSquad= new Squad(2,"Team Super Girl", "Fight Criminals");
+        Squad anotherSquad= new Squad("Team Super Girl", "Fight Criminals");
         assertEquals(2,Squad.findById(anotherSquad.getId()).getId());
     }
 
     @Test
     public void findReturnsMoreThanFiveSquad_false() throws Exception {
         Squad squad1= createNewSquad();
-        Squad squad2= new Squad(2,"Team Super Girl", "Fight Criminals");
-        Squad squad3= new Squad(3,"Team Super Girl", "Fight Criminals");
-        Squad squad4= new Squad(4,"Team Super Girl", "Fight Criminals");
-        Squad squad5= new Squad(5,"Team Super Girl", "Fight Criminals");
-        Squad squad6= new Squad(6,"Team Super Girl", "Fight Criminals");
+        Squad squad2= new Squad("Team Super Girl", "Fight Criminals");
+        Squad squad3= new Squad("Team Super Girl", "Fight Criminals");
+        Squad squad4= new Squad("Team Super Girl", "Fight Criminals");
+        Squad squad5= new Squad("Team Super Girl", "Fight Criminals");
+        Squad squad6= new Squad("Team Super Girl", "Fight Criminals");
         assertEquals(1,Squad.findById(squad1.getId()).getId());
         assertEquals(2,Squad.findById(squad2.getId()).getId());
         assertEquals(3,Squad.findById(squad3.getId()).getId());
@@ -93,7 +93,7 @@ public class SquadTest {
     @Test
     public void deleteByIdRemovesSquadById_true() throws Exception {
         Squad squad=createNewSquad();
-        Squad anotherSquad= new Squad(2,"Team Super Girl", "Fight Criminals");
+        Squad anotherSquad= new Squad("Team Super Girl", "Fight Criminals");
         squad.deleteSquad();
         assertEquals(1,squad.getAll().size());
         assertEquals(squad.getAll().get(0).getId(),2);
@@ -108,5 +108,5 @@ public class SquadTest {
     }
 
     public Squad createNewSquad()
-    {return new Squad(1, "Hero Squad","computer illiteracy");}
+    {return new Squad( "Hero Squad","computer illiteracy");}
 }
