@@ -1,0 +1,19 @@
+#heading
+{
+text-decoration: underline;
+color:red;
+}
+body
+{
+background-image: url("../images/l1xrkK.jpg");
+background-repeat: no-repeat;
+background-size: cover;
+}
+.container
+{
+background-image: url("../images/wiTOa9.jpg");
+}
+.jumbotron
+{
+opacity: 0.9;
+}
