@@ -1,0 +1,16 @@
+{{#partial "content"}}
+    <h1 id="heading">Welcome to Hero Squad App</h1>
+    {{#partial "col-md-4"}}
+        {{#if heroes}}
+            <h4>Registered Heroes</h4>
+            {{#each heroes}}
+                <p>{{name}}<a href="/heroes/{{id}}">View Hero</a></p>
+            {{/each}}
+        {{else}}
+            <h4>No Registered Heroes</h4>
+        {{/if}}
+    {{/partial}}
+
+
+{{/partial}}
+{{>layout.hbs}}

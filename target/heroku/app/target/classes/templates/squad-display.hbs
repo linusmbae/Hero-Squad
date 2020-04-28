@@ -1,0 +1,13 @@
+{{#partial "content"}}
+    {{#partial "col-md-5"}}
+        {{#if squads}}
+            <h4>Registered Squads</h4>
+            {{#each squads}}
+                <p>{{name}}<a href="/squads/{{id}}">View Squad</a></p>
+            {{/each}}
+        {{else}}
+            <h4>No Registered Squad</h4>
+        {{/if}}
+    {{/partial}}
+{{/partial}}
+{{>layout.hbs}}
