@@ -186,12 +186,12 @@ public class App {
         get("/heroes/:id/assign", (request, response) ->
         {
             Map<String, Object>model= new HashMap<String, Object>();
-            int idOfHeroToAssign=Integer.parseInt(request.params(":id"));
-            Hero assign= Hero.findById(idOfHeroToAssign);
-            model.put("assign",assign);
+//            int idOfHeroToAssign=Integer.parseInt(request.params(":id"));
+//            Hero assign= Hero.findById(idOfHeroToAssign);
+//            model.put("assign",assign);
 
             ArrayList<Squad>squads=Squad.getAll();
-            model.put("squads",squads);
+            model.put("assignSquads",squads);
             return new ModelAndView(model,"assign-form.hbs");
         }, new HandlebarsTemplateEngine());
     }
