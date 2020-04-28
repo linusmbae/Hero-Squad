@@ -84,7 +84,7 @@
                     <!-- Change this to YOUR application name! -->
                     <appName>my-hero-squad-app</appName>
                     <processTypes>
-                        <web>java -jar target/Hero-Squad-1.0-jar-with-dependencies.jar</web>
+                        <web>java -jar target/my-hero-squad-app-1.0-jar-with-dependencies.jar</web>
                     </processTypes>
                 </configuration>
             </plugin>
