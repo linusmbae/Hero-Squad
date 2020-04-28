@@ -1,10 +1,10 @@
 {{#partial "content"}}
 
-    {{#if assign}}
-            <form action="/heroes/{{assign.id}}/assign" method="post">
+    {{#if assignSquads}}
+            <form action="/heroes/{{assignSquads.id}}/assign" method="post">
                 <select name="squad" id="squad" class="form-control">
-            {{#each squads}}
-                    <option value="{{assign.name}}"></option>
+            {{#each assignSquads}}
+                    <option value="{{name}}"></option>
             {{/each}}
                 </select>
                 <button type="submit" class="btn btn-success"><strong>Assign</strong></button>
