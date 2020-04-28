@@ -14,6 +14,9 @@ Navigate through your local storage to your favourite directory using terminal.
 
 Clone the App to your local storage and launch it.
  
+ ## Live Link
+ [Live Link](https://my-hero-squad-app.herokuapp.com/)
+ 
 ## Reach me
 [Email](linusmutugi5178@gmail.com) 
 
