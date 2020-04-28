@@ -43,7 +43,7 @@
     <property name="java.class.path" value="/opt/maven/boot/plexus-classworlds-2.6.0.jar"/>
     <property name="java.vm.specification.version" value="11"/>
     <property name="sun.arch.data.model" value="64"/>
-    <property name="sun.java.command" value="org.codehaus.plexus.classworlds.launcher.Launcher heroku:deploy"/>
+    <property name="sun.java.command" value="org.codehaus.plexus.classworlds.launcher.Launcher package"/>
     <property name="java.home" value="/home/linus/.sdkman/candidates/java/11.0.6.hs-adpt"/>
     <property name="user.language" value="en"/>
     <property name="java.specification.vendor" value="Oracle Corporation"/>
@@ -65,10 +65,10 @@
   <testcase classname="models.SquadTest" name="findReturnsMoreThanFiveSquad_false" time="0"/>
   <testcase classname="models.SquadTest" name="findByIdReturnsCorrectSquad" time="0"/>
   <testcase classname="models.SquadTest" name="clearAllClearsSquadList_true" time="0"/>
-  <testcase classname="models.SquadTest" name="squadInstantiatesCorrectly_true" time="0"/>
+  <testcase classname="models.SquadTest" name="squadInstantiatesCorrectly_true" time="0.001"/>
   <testcase classname="models.SquadTest" name="allSquadsAreReturnedCorrectly_true" time="0"/>
   <testcase classname="models.SquadTest" name="findReturnsMoreThanOneSquad" time="0"/>
-  <testcase classname="models.SquadTest" name="allSquadsContainsAllSquads" time="0.001"/>
+  <testcase classname="models.SquadTest" name="allSquadsContainsAllSquads" time="0"/>
   <testcase classname="models.SquadTest" name="updateSquadDetails" time="0"/>
   <testcase classname="models.SquadTest" name="deleteByIdRemovesSquadById_true" time="0"/>
   <testcase classname="models.SquadTest" name="squadIsCreatedCorrectly_true" time="0"/>
